@@ -296,6 +296,8 @@ function editTran() {
   } else {
     showInfo(editCardInfo, "Please enter proper value.");
   }
+
+  editCardEle.style.display = "none";
 }
 
 const sortTransHelper = (arr = [], sortTypeNum) => {
