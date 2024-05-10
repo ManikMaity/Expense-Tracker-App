@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expence Traker</title>
+    <!-- css file link  -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- fontawsome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- edit trans item form -->
+    <div id="" class="edit-money-card">
+        <div class="add-type">
+            <p>Edit Expense</p>
+            <button id="closeEdit">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="edit-form-container">
+            <div class="flex-col edit-amount">
+                <label for="editAmount">Amount</label>
+                <input type="number" min="0" name="amount" id="editAmount">
+            </div>
+            <div class="exp-for-edit flex-col">
+                <label for="tagName">Tag Name</label>
+                <input type="text" minlength="25" id="tagName">
+            </div>
+        </div>
+        <div class="info-container"><i class="fa-solid fa-circle-info"></i>
+            <p class="info"></p>
+        </div>
+        <button id="editTranBtn">Edit Expense <i class="fa-regular fa-pen-to-square"></i></button>
+    </div>
+
+    <!-- mobie btn and greet user  -->
+    <button class="mobile-add-btn"><i class="fa-solid fa-plus"></i></button>
+    <div class="main">
+        <div class="greeting">
+            <p>Hi <h1>User,</h1>
+            </p>
+        </div>
+
+        <!---------------------------- left section strats here  -------------------------->
+        <div class="left-container">
+
+
+            <div class="display-cards">
+
+                <!-- money left card  -->
+                <div class="money-left-card">
+                    <div class="card-text-container">
+                        <p>Buget Left</p>
+                        <h1>₹<span id="budgetLeft">0</span></h1>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+
+
+                <!-- total money cards  -->
+                <div class="budg-exp-container">
+
+                    <div class="total-card total-budget">
+                        <p>Total Budget</p>
+                        <div>
+                            <h4>₹<span id="totalBudget">0</span></h4>
+                        </div>
+                    </div>
+
+                    <div class="total-card total-exp">
+                        <p>Total Expense</p>
+                        <div>
+                            <h4>₹<span id="totalExp">0</span></h4>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- add exp or budget card  -->
+
+            <div class="add-money-card">
+
+                <div class="add-type">
+                    <button class="add-exp-btn selected-add-exp">Add Expense</button>
+                    <button class="add-bud-btn">Change Budget</button>
+                </div>
+
+                <div class="form-container">
+                    <div class="flex-col add-amount">
+                        <label for="addAmount">Amount</label>
+                        <input type="number" min="0" name="amount" id="addAmount">
+                    </div>
+
+                    <div class="exp-for">
+                        <div class="tags-conatiner">
+                            <input type="radio" id="shoping" name="expFor" value="Shopping🛍️">
+                            <label for="shoping">Shopping🛍️</label>
+                            <input type="radio" id="food" name="expFor" value="Food😋">
+                            <label for="food">Food😋</label>
+                            <input type="radio" id="subscription" name="expFor" value="Subscription📱">
+                            <label for="subscription">Subscription📱</label>
+                        </div>
+                        <div class="tag-input">
+                            <input type="text" name="" maxlength="20" id="tagInputField">
+                            <button id="confirmNewTag"><i class="fa-solid fa-check"></i></button>
+                        </div>
+                        <button id="addTagBtn">
+                            Add tag <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="info-container"><i class="fa-solid fa-circle-info"></i>
+                    <p class="info"></p>
+                </div>
+
+                <div class="add-money-card-btn">
+                    <button id="addBtn">Add <i class="fa-solid fa-plus"></i></button>
+                    <button id="clearBtn">Clear</button>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!------------------------------------ left section ends here  --------------------->
+
+
+
+
+        <div class="right-container">
+            <div class="history-text">
+                <h1>History</h1>
+                <select name="sortTrans" id="sortTrans">
+                    <option value="default">Default</option>
+                    <option value="highToLow">High to Low</option>
+                    <option value="lowToHigh">Low to High</option>
+                </select>
+            </div>
+
+            <div class="money-history-container">
+
+                <!-- <div class="trans-item" id="${obj?.id}">
+  <div>
+      <h4>-₹${obj?.amount}</h4>
+      <div class="tranTagContainer">
+        <p>${obj?.tag}</p>
+        <p class="trans-date">${new Date(obj?.time).toLocaleString()}</p>
+      </div>
+  </div>
+  <p class="trans-date">${new Date(obj?.time).toLocaleString()}</p>
+  <div class="trans-item-btn">
+      <button id="transEdit"><i class="fa-regular fa-pen-to-square"></i></button>
+      <button id="transDelete"><i class="fa-regular fa-trash-can"></i></button>
+  </div>
+  </div> -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- chart.js cdn for pie card  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./scripts/app.js" type="module"></script>
+
+</body>
+
+</html>
