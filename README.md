@@ -21,7 +21,7 @@
 <img src="./Assets/exp-tracker-destop-preview.png" alt="">
 
 ### Mobile Preview
-<img style="max-width: 300px;" src="./Assets/exp-tracker-mobile.png" alt="">
+<img height="600px" src="./Assets/exp-tracker-mobile.png" alt="">
 
 ---
 
